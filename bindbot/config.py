@@ -16,9 +16,9 @@ def _bool(v: str) -> bool:
 
 @dataclass
 class Config:
-    bot_token: str = "9127494962:AAGghTb9B12WjH50kP1giLXlDp5q3TCe7AE"
-    admin_ids: set
-    secret_key: str
+    admin_ids: set                          # Сначала обязательные поля без значений по умолчанию
+    secret_key: str                         
+    bot_token: str = "9127494962:AAGghTb9B12WjH50kP1giLXlDp5q3TCe7AE" # Потом поля со значениями
     sqlite_path: str = "bot.db"
     author: str = "bounty_bellow"
     pw_min: int = 6
@@ -30,6 +30,7 @@ class Config:
     cascade_tables: list = field(default_factory=list)  # [(table, column)]
     hash_variant: str = ""
     servers: list = field(default_factory=list)  # серверы из servers.json / .env
+
 
 
 _IDENT = re.compile(r"^[A-Za-z0-9_]+$")
